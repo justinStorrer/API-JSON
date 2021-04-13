@@ -6,18 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class API_JSONTableViewController: UITableViewController {
     
     var courses: [Course] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getCourses()
         
     }
-
+    
     // How many rows?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.count
@@ -37,7 +38,7 @@ class API_JSONTableViewController: UITableViewController {
                             self.courses = coursesFromAPI
                             self.tableView.reloadData()
                         }
-    
+                        
                     }
                     
                 }
@@ -46,17 +47,30 @@ class API_JSONTableViewController: UITableViewController {
         }
         
     }
-
+    
     // what goes in each row?
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath)
-
-        let course = courses[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as? CourseTableViewCell {
+            
+            let course = courses[indexPath.row]
+            
+            
+            cell.titleViewLabel?.text = course.title
+            cell.subtitleViewLabel?.text = course.subtitle
+            
+            if let url = URL(string: course.imageURL) {
+                cell.courseImage.kf.setImage(with: url)
+            }
+            
+            return cell
+            
+        }
         
-        cell.textLabel?.text = course.title
-
-        return cell
+        return UITableViewCell()
     }
     
-
+    @IBAction func refreshButton(_ sender: Any) {
+        getCourses()
+    }
+    
 }
