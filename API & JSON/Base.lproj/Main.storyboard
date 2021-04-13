@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--ZappyCode Courses-->
         <scene sceneID="0nO-yV-Lur">
             <objects>
                 <tableViewController id="Dy9-V9-o2Y" customClass="API_JSONTableViewController" customModule="API___JSON" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,13 +16,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" id="fPm-Rc-oYE">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" rowHeight="482" id="fPm-Rc-oYE" customClass="CourseTableViewCell" customModule="API___JSON" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="482"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fPm-Rc-oYE" id="ZJL-t7-0uP">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="482"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwiftUI-iOS14-CourseImageBig" translatesAutoresizingMaskIntoConstraints="NO" id="Cs3-36-pzn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Cs3-36-pzn" secondAttribute="height" multiplier="1500:844" id="gDg-sV-tG7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftUI Apps on All Devices - iPhone, iPad, Mac, Watch &amp; TV" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsL-kE-M3b">
+                                            <rect key="frame" x="20" y="241" width="374" height="164.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Make Apps and Widgets for iOS 14, macOS 11, watchOS 7 and tvOS 14 using Xcode 12, Swift 5, WidgetKit and Apple Watch" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B9-jS-efo">
+                                            <rect key="frame" x="20" y="413" width="374" height="58"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Cs3-36-pzn" secondAttribute="trailing" id="1tB-8c-eaL"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7B9-jS-efo" secondAttribute="bottom" id="54i-r1-VRc"/>
+                                        <constraint firstItem="Cs3-36-pzn" firstAttribute="top" secondItem="ZJL-t7-0uP" secondAttribute="top" id="BLn-SM-bNE"/>
+                                        <constraint firstItem="7B9-jS-efo" firstAttribute="leading" secondItem="ZJL-t7-0uP" secondAttribute="leadingMargin" id="Gc1-mu-j16"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zsL-kE-M3b" secondAttribute="trailing" id="iY9-0S-9Ug"/>
+                                        <constraint firstItem="zsL-kE-M3b" firstAttribute="leading" secondItem="ZJL-t7-0uP" secondAttribute="leadingMargin" id="rNI-nc-2sy"/>
+                                        <constraint firstItem="zsL-kE-M3b" firstAttribute="top" secondItem="Cs3-36-pzn" secondAttribute="bottom" constant="8" symbolic="YES" id="rav-NE-Ngz"/>
+                                        <constraint firstItem="7B9-jS-efo" firstAttribute="top" secondItem="zsL-kE-M3b" secondAttribute="bottom" constant="7.5" id="u8N-mZ-de7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7B9-jS-efo" secondAttribute="trailing" id="uf4-M2-slL"/>
+                                        <constraint firstItem="Cs3-36-pzn" firstAttribute="leading" secondItem="ZJL-t7-0uP" secondAttribute="leading" id="vy4-pr-yqd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="courseImage" destination="Cs3-36-pzn" id="Lra-2v-duJ"/>
+                                    <outlet property="subtitleViewLabel" destination="7B9-jS-efo" id="h92-l9-YSZ"/>
+                                    <outlet property="titleViewLabel" destination="zsL-kE-M3b" id="QOr-Np-1qF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,7 +67,13 @@
                             <outlet property="delegate" destination="Dy9-V9-o2Y" id="yUg-jC-j01"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="k4x-vE-XDt"/>
+                    <navigationItem key="navigationItem" title="ZappyCode Courses" id="k4x-vE-XDt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ERU-Ep-MtU">
+                            <connections>
+                                <action selector="refreshButton:" destination="Dy9-V9-o2Y" id="C8Q-06-fNW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mey-8V-5mR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,6 +99,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="SwiftUI-iOS14-CourseImageBig" width="1500" height="844"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
